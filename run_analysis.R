@@ -1,4 +1,4 @@
-dataset<-run_analysis{
+run_analysis<-function{
 setwd("C:/Users/zhaoyuxuan/Documents/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset")
 
 #First, read all the data.
