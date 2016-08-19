@@ -1,4 +1,5 @@
-setwd("C:/Users/zhaoyuxuan/Documents/UCI HAR Dataset")
+dataset<-run_analysis{
+setwd("C:/Users/zhaoyuxuan/Documents/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset")
 
 #First, read all the data.
 Xtest<-read.table("./test/X_test.txt")
@@ -43,7 +44,10 @@ names(result)<-tolower(names(result))
 library(gtools)
 fresult<-result[mixedorder(as.character(result[,1])),]
 rownames(fresult)<-NULL
+#Here we get the tidy data set 'fresult'.
 
-#Write the data frame into the file.
+#Write the data frame into the file and output it.
 setwd("C:/Users/zhaoyuxuan/Documents")
 write.table(fresult,"myresult.txt")
+fresult
+}
