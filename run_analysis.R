@@ -35,6 +35,7 @@ for (i in 1:6){
 sub_act<-paste(mydata[,1],mydata[,2],sep="_")
 newdata<-cbind(sub_act,mydata[,c(-1,-2)])
 result<-aggregate(newdata[,-1],list(newdata$sub_act),mean)
+names(result)[1]<-c("subject_activity")
 
 #Write the data frame into the file.
 setwd("C:/Users/zhaoyuxuan/Documents")
