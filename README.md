@@ -10,4 +10,7 @@ Then, I calculate the mean of each variable for each subject and each activity u
 
 Then, to make the data set tidy, I change all the column names to be lowercase. And use the gtools package to sort the data frame, since the elements in the first row are character including numbers. We will sort these rows first by comparing their number then by comparing their character part, and both in ascending order.
 
-Finally, I write this data frame in a txt file.
+Finally, I write this data frame in a txt file and output this data frame.
+
+Call dataset<-run_analysis 
+You will get the tidy data set in two copys. One is the "dataset" as a data frame, and one is a "myresult.txt" as a txt file in the original work directory.
