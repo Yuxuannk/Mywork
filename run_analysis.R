@@ -1,5 +1,5 @@
 run_analysis<-function{
-setwd("C:/Users/zhaoyuxuan/Documents/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset")
+setwd("C:/Users/zhaoyuxuan/Documents/UCI HAR Dataset")
 
 #First, read all the data.
 Xtest<-read.table("./test/X_test.txt")
@@ -22,7 +22,9 @@ names(alldata)<-c('subject','activity_labels',as.character(vanames[,2]))
 #Extract the measurements on the mean and standard deviation. 
 #Find these columns whose names include mean or std.
 index<-grepl("mean",names(alldata))|grepl("std",names(alldata))
-mydata<-alldata[,!index]
+mydata<-cbind(alldata[,c(1,2)],alldata[,index])
+sindex<-grepl("meanfreq",names(mydata))
+mydata<-mydata[,!sindex]
 
 #Uses descriptive activity names to name the activities in the data set.
 acname<-as.character(acnames[,2])
@@ -44,10 +46,9 @@ names(result)<-tolower(names(result))
 library(gtools)
 fresult<-result[mixedorder(as.character(result[,1])),]
 rownames(fresult)<-NULL
-#Here we get the tidy data set 'fresult'.
 
-#Write the data frame into the file and output it.
+#Write the data frame into the file.
 setwd("C:/Users/zhaoyuxuan/Documents")
-write.table(fresult,"myresult.txt")
+write.table(fresult,"myresult.txt",row.names=FALSE)
 fresult
 }
